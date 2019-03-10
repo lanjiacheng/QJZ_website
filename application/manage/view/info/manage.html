@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理信息</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {load href="/static/css/bootstrap.min.css"}
+    {load href="/static/js/jquery.min.js,/static/js/bootstrap.min.js"}
+</head>
+<body>
+    <!--添加导航栏-->
+    {include file="static/view_model/manage_nav.html" /}
+
+    <div class="input-group" style="margin-bottom: 20px">
+        <input id="inputSearchContent" type="text" class="form-control" placeholder="输入相关信息以搜索"/>
+        <span class="input-group-btn">
+            <button id="btn_search" class="btn btn-primary" type="button">搜索</button>
+        </span>
+    </div>
+
+    {$tip|default=""}
+
+    {volist name='students' id='student'}
+    <div class="panel panel-default" student_num="{$student.student_num}">
+        <div class="panel-body">
+            <span style="color: #05d2fa">姓名：</span><span style="color: #1e5bff">{$student.name}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">学院：</span><span style="color: #1e5bff">{$student.institute}</span><br/>
+            <span style="color: #05d2fa">班级：</span><span style="color: #1e5bff">{$student.class}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">性别：</span><span style="color: #1e5bff">{$student.sex}</span><br/>
+            <span style="color: #05d2fa">学号：</span><span style="color: #1e5bff">{$student.student_num}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">电话：</span><span style="color: #1e5bff">{$student.phone_num}</span><br/>
+            <span style="color: #05d2fa">账号：</span><span
+                style="color: #1e5bff">{$student.account}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">密码：</span><span style="color: #1e5bff">{$student.password}</span><br/>
+            <span style="color: #05d2fa">年级：</span><span style="color: #1e5bff">{$student.grade}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">联系方式：</span><span style="color: #1e5bff">{$student.contact}</span>
+            <br/>
+            <span style="color: #05d2fa">appid：</span><span style="color: #1e5bff">{$student.appid}</span>
+            <br/>
+            <div style="width: 100%;text-align: right">
+                <button type="button" class="btn btn-danger btn-xs btn_delete" student_num="{$student.student_num}">删除
+                </button>
+                <button type="button" class="btn btn-warning btn-xs btn_update" student_num="{$student.student_num}">
+                    修改
+                </button>
+            </div>
+        </div>
+    </div>
+    {/volist}
+    <div style="text-align: center">{$page|default=''}</div>
+
+    <!-- 弹出框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">正在加载标题...</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    正在加载内容...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="myModalButtonOk" type="button" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{load href="/static/js/manage_info_manage.js"}

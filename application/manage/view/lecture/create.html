@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建讲座</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {load href="/static/css/bootstrap.min.css"}
+    {load href="/static/js/jquery.min.js,/static/js/bootstrap.min.js"}
+</head>
+<body>
+    <!--添加导航栏-->
+    {include file="static/view_model/manage_nav.html" /}
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">AppId：</span>
+        <input id="inputAppid" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2">讲座标题：</span>
+        <input id="inputTitle" type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3">讲座详细：</span>
+        <textarea id="inputDetail" class="form-control" rows="3" name=textarea></textarea>
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon4">报名人数上限：</span>
+        <input id="inputMaxPeoples" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon5"> 可报名年级：</span>
+        <input id="inputGrade" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon6">最迟报名时间：</span>
+        <input id="inputLastEnrollTime" type="datetime-local" step="01" name="user_date" class="form-control"/>
+    </div>
+    <br>
+    <div style="height: 100%;text-align: center">
+        <button id="btn_lecture_create" type="button" class="btn btn-primary" style="width: 150px">创建</button>
+    </div>
+    <!-- 弹出框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">正在加载标题...</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    正在加载内容...
+                </div>
+                <div class="modal-footer">
+                    <button id="myModalButtonClose" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="myModalButtonOk" type="button" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{load href="/static/js/manage_lecture_create.js"}

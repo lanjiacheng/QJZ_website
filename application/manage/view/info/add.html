@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加个人信息</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {load href="/static/css/bootstrap.min.css"}
+    {load href="/static/js/jquery.min.js,/static/js/bootstrap.min.js"}
+</head>
+<body>
+    <!--添加导航栏-->
+    {include file="static/view_model/manage_nav.html" /}
+    <div class="input-group">
+        <span class="input-group-addon">姓名：</span>
+        <input id="inputName" type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">学院：</span>
+        <input id="inputInstitute" type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">班级：</span>
+        <input id="inputClass" type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">性别：</span>
+        <input id="inputSex" type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">学号：</span>
+        <input id="inputStudent_num" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">电话：</span>
+        <input id="inputPhone_num" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">账号：</span>
+        <input id="inputAccount" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">密码：</span>
+        <input id="inputPassword" type="text" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">年级：</span>
+        <input id="inputGrade" type="number" class="form-control">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon">联系方式：</span>
+        <input id="inputContact" type="text" class="form-control">
+    </div>
+    <br>
+    <div style="height: 100%;text-align: center">
+        <button id="btn_info_add" type="button" class="btn btn-primary" style="width: 150px">添加</button>
+    </div>
+    <!-- 弹出框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">正在加载标题...</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    正在加载内容...
+                </div>
+                <div class="modal-footer">
+                    <button id="myModalButtonClose" type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button id="myModalButtonOk" type="button" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{load href="/static/js/manage_info_add.js"}

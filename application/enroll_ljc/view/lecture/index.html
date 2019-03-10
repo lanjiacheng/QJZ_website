@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>讲座报名</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {load href="/static/css/bootstrap.min.css"}
+    {load href="/static/js/jquery.min.js,/static/js/bootstrap.min.js"}
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top" style="background:#337ab7;text-align: center">
+        <a class="navbar-text" style="color: #eeeff4;float: none;position: absolute;left: 10px;font-size: 13px;padding-top: 1px" href="/enroll_ljc">返回</a>
+        <h4 class="navbar-text" style="color: #eeeff4;float: none">讲座报名</h4>
+    </nav>
+    <div style="height: 70px"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{$lecture.title}</h3>
+        </div>
+        <div class="panel-body">
+            {$lecture.detail}
+        </div>
+    </div>
+    <div class="container" style="width: 300px">
+        <form class="form-signin">
+            <h4 class="form-signin-heading">请输入你的学号</h4>
+            <input type="number" id="inputStudent_num" class="form-control" placeholder="学号" required="" autofocus="">
+            <div class="checkbox">
+                <label>
+                    <input id="is-remember"  type="checkbox" value="remember"> 记住学号
+                </label>
+            </div>
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button id="enroll_cancel" type="button" class="btn btn-danger">取消报名</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button id="enroll_query" type="button" class="btn btn btn-info">查询状态</button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button id="enroll_start" type="button" class="btn btn-success">开始报名</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- 弹出框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">正在加载标题...</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    正在加载内容...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="myModalButtonOk" type="button" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{load href="/static/js/lecture.js"}

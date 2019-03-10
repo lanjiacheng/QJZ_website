@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理讲座</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    {load href="/static/css/bootstrap.min.css"}
+    {load href="/static/js/jquery.min.js,/static/js/bootstrap.min.js"}
+</head>
+<body>
+    <!--添加导航栏-->
+    {include file="static/view_model/manage_nav.html" /}
+    {volist name='lectures' id='lecture'}
+    <div class="panel panel-default" appid="{$lecture.appid}">
+        <div class="panel-body">
+            <span style="color: #05d2fa">标题：</span><span style="color: #1e5bff">{$lecture.title}</span><br/>
+            <span style="color: #05d2fa">详细：</span><span style="color: #1e5bff">{$lecture.detail}</span><br/>
+            <span style="color: #05d2fa">appid：</span><span style="color: #1e5bff">{$lecture.appid}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">最大人数：</span><span style="color: #1e5bff">{$lecture.max_peoples}</span><br/>
+            <span style="color: #05d2fa">当前人数：</span><span style="color: #1e5bff">{$lecture.current_peoples}</span><span
+                style="color: #f40002">，</span>
+            <span style="color: #05d2fa">年级：</span><span style="color: #1e5bff">{$lecture.grade}</span><br/>
+            <span style="color: #05d2fa">最迟报名：</span><span
+                style="color: #1e5bff">{$lecture.last_enroll_time}</span><br/>
+            <span style="color: #05d2fa">创建时间：</span><span style="color: #1e5bff">{$lecture.create_time}</span><br/>
+            <span style="color: #05d2fa">更新时间：</span><span style="color: #1e5bff">{$lecture.update_time}</span>
+            <br/>
+            <div style="width: 100%;text-align: right">
+                <button type="button" class="btn btn-danger btn-xs btn_delete" appid="{$lecture.appid}">删除</button>
+                <button type="button" class="btn btn-warning btn-xs btn_update" appid="{$lecture.appid}">修改</button>
+            </div>
+        </div>
+    </div>
+    {/volist}
+    <div style="text-align: center">{$page}</div>
+
+    <!-- 弹出框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">正在加载标题...</h4>
+                </div>
+                <div id="myModalBody" class="modal-body">
+                    正在加载内容...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="myModalButtonOk" type="button" class="btn btn-primary">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{load href="/static/js/manage_lecture_manage.js"}
